@@ -1,0 +1,133 @@
+/* General styles for all dashboards */
+.dashboard-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.add-user-btn, .assign-task-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.add-user-btn:hover, .assign-task-btn:hover {
+    background-color: #45a049;
+}
+.logout-btn{
+    background-color: #FF6363;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #CF0F47;
+}
+
+.submit-btn {
+    background-color: #45a049;
+}
+/* Section for displaying tables */
+.section {
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Tables */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-table th, .task-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Status Colors */
+.completed {
+    color: green;
+}
+
+.pending {
+    color: orange;
+}
+/* Make the task table responsive */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-table th, .task-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.completed {
+    color: green;
+}
+
+.pending {
+    color: orange;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .task-table th, .task-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .assign-task-btn, .logout-btn, .submit-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+

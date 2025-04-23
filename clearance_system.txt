@@ -1,0 +1,39 @@
+-- Create 'users' table for storing user data (admin, chair, faculty)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL, -- Store password (plain text if not hashed)
+    role ENUM('admin', 'chair', 'faculty') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create 'tasks' table to store tasks assigned to faculty
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(255) NOT NULL,
+    assigned_faculty INT,
+    status ENUM('pending', 'completed') DEFAULT 'pending',
+    file_url VARCHAR(255) DEFAULT NULL, -- Store the Google Drive link for the submitted file
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (assigned_faculty) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Insert initial admin user
+INSERT INTO users (name, email, password, role) VALUES
+('Admin', 'admin@example.com', 'Admin123', 'admin');
+
+-- Insert a sample chair user
+INSERT INTO users (name, email, password, role) VALUES
+('Chair User', 'chair@example.com', 'Chair123', 'chair');
+
+-- Insert a sample faculty user
+INSERT INTO users (name, email, password, role) VALUES
+('Faculty User', 'faculty@example.com', 'Faculty123', 'faculty');
+
+-- Sample task assignments
+INSERT INTO tasks (task_name, assigned_faculty, status) VALUES
+('Task 1 for Faculty', 3, 'pending'), -- Assign task to Faculty User
+('Task 2 for Faculty', 3, 'pending'); -- Assign another task to Faculty User
+
+-- You can add more tasks or users as required by the system.
